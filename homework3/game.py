@@ -38,9 +38,9 @@ def print_field(field):
     """
     i = 0
     while i < 4:
-         print(' '.join([str(tile).ljust(3) for tile
+        print(' '.join([str(tile).ljust(3) for tile
                          in field[i * 4:i * 4 + 4]]))
-         i += 1
+        i += 1
 
 
 def is_game_finished(field):
@@ -50,8 +50,8 @@ def is_game_finished(field):
     :return: True if the game is finished, False otherwise.
     """
     for i in range(1, len(field)):
-         if field[i - 1] != i or field[i - 1] == EMPTY_MARK:
-              return False
+        if field[i - 1] != i or field[i - 1] == EMPTY_MARK:
+            return False
 
     return True
 
@@ -67,17 +67,17 @@ def perform_move(field, key):
     empty_mark_index = field.index(EMPTY_MARK)
 
     if empty_mark_index % 4 == 0 and key == 'a':
-         raise IndexError()
+        raise IndexError()
     elif empty_mark_index % 4 == 3 and key == 'd':
-         raise IndexError()
+        raise IndexError()
     elif empty_mark_index < 4 and key == 'w':
-         raise IndexError()
+        raise IndexError()
     elif empty_mark_index > 11 and key == 's':
-         raise IndexError()
+        raise IndexError()
 
     new_field = list(field)
     new_field[empty_mark_index], new_field[empty_mark_index + MOVES[key]] = \
-         new_field[empty_mark_index + MOVES[key]], new_field[empty_mark_index]
+    new_field[empty_mark_index + MOVES[key]], new_field[empty_mark_index]
 
     return new_field
 
@@ -94,15 +94,10 @@ def handle_user_input():
     allowed_moves = list(MOVES.keys())
     move = ''
     while move not in allowed_moves:
-         move = input('Use: "w", "s", "a", "d" ')
+        move = input('Use: "w", "s", "a", "d" ')
     return move
 
 def main():
-    """
-    The main method. It stars when the program is called.
-    It also calls other methods.
-    :return: None
-    """
     field = shuffle_field()
     counter = 0
     while not is_game_finished(field):
