@@ -96,8 +96,14 @@ def handle_user_input():
     while move not in allowed_moves:
         move = input('Use: "w", "s", "a", "d" ')
     return move
+
+
 def main():
-    
+    """
+    The main method. It stars when the program is called.
+    It also calls other methods.
+    :return: None
+    """
     field = shuffle_field()
     counter = 0
     while not is_game_finished(field):
