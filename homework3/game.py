@@ -39,7 +39,7 @@ def print_field(field):
     i = 0
     while i < 4:
         print(' '.join([str(tile).ljust(3) for tile
-                         in field[i * 4:i * 4 + 4]]))
+                        in field[i * 4:i * 4 + 4]]))
         i += 1
 
 
@@ -77,7 +77,7 @@ def perform_move(field, key):
 
     new_field = list(field)
     new_field[empty_mark_index], new_field[empty_mark_index + MOVES[key]] = \
-    new_field[empty_mark_index + MOVES[key]], new_field[empty_mark_index]
+        new_field[empty_mark_index + MOVES[key]], new_field[empty_mark_index]
 
     return new_field
 
@@ -96,8 +96,8 @@ def handle_user_input():
     while move not in allowed_moves:
         move = input('Use: "w", "s", "a", "d" ')
     return move
-
 def main():
+    
     field = shuffle_field()
     counter = 0
     while not is_game_finished(field):
